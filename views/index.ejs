@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJS Tags</title>
+  </head>
+
+  <body>
+    <!-- Template EJS per generare pagine HTML dinamiche lato server -->
+
+    <!-- Genera un'intestazione <h1> con il valore della variabile 'title' -->
+    <h1><%= title %></h1>
+
+    <!-- Genera un paragrafo con il valore della variabile 'seconds' -->
+    <p>Current second: <%= seconds %></p>
+
+    <!-- Struttura di controllo: se 'seconds' è pari, esegui il blocco -->
+    <% if (seconds % 2 === 0) { %>
+
+    <!-- Inizio lista non ordinata -->
+    <ul>
+      <!-- Ciclo forEach per ciascun elemento 'fruit' nell'array 'items' -->
+      <% items.forEach((fruit) => { %>
+
+      <!-- Genera un elemento di lista <li> con il valore del frutto -->
+      <li><%= fruit %></li>
+
+      <% }); %>
+    </ul>
+    <!-- Fine lista non ordinata -->
+
+    <!-- Se 'seconds' non è pari, esegui questo blocco -->
+    <% } else { %>
+
+    <!-- Genera un paragrafo che indica l'assenza di elementi da visualizzare -->
+    <p>No items to display</p>
+
+    <% } %>
+
+    <!-- Genera un paragrafo con il contenuto HTML fornito dalla variabile 'htmlContent' -->
+    <p><%- htmlContent %></p>
+
+    <!-- Include il contenuto del file "footer.ejs" -->
+    <%- include("footer.ejs") %>
+
+    <!--
+  Questo è un template EJS (Embedded JavaScript) utilizzato per generare pagine HTML dinamiche lato server. 
+  Ecco una spiegazione dei diversi elementi presenti nel template:
+
+  In sintesi, questo template EJS è utilizzato per generare pagine HTML dinamiche utilizzando dati e logica lato server. 
+  Il template visualizza il titolo, il valore dei secondi, una lista di frutti (se il numero dei secondi è pari), 
+  il contenuto HTML fornito e include il contenuto del file "footer.ejs".
+-->
+  </body>
+</html>
